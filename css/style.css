@@ -1,0 +1,464 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  font-family: "San Francisco Text", serif;
+  color: white;
+}
+body p {
+  font-size: 1rem;
+  line-height: 1.7rem;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+.menu__logo img {
+  width: 100%;
+  padding: 7% 0 5%;
+}
+.menu__links {
+  clear: both;
+}
+.menu__links ul {
+  display: flex;
+}
+.menu__links li {
+  display: inline-block;
+  padding: 2% 4% 0 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid white;
+  opacity: 0.8;
+}
+.menu__links li:hover {
+  border-bottom: 1px solid yellow;
+  opacity: 1;
+}
+.menu__links li:last-child {
+  padding-right: 0;
+}
+.menu__links li a {
+  text-decoration: none;
+  color: white;
+}
+.menu__links__second-links {
+  float: right;
+}
+.menu__links__second-links li {
+  padding-top: 0;
+  margin-top: 20px;
+  border-bottom: none;
+}
+
+.introduction__background {
+  background-image: url("Images/IMG_7526.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+}
+.introduction__content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 40vh;
+}
+.introduction__content__left-column {
+  flex: 1;
+  background-color: #8FB7D3;
+  padding: 2% 2% 2% 0;
+  clip-path: polygon(0 6%, 100% 28%, 100% 100%, 0% 100%);
+}
+.introduction__content__left-column__content {
+  display: block;
+  padding-top: 10vh;
+  margin: auto;
+}
+.introduction__content__left-column__content__button__first-button {
+  background-color: #F4B72F;
+  color: white;
+  font-weight: 500;
+  clip-path: polygon(0 0, 100% 0, 91% 100%, 0% 100%);
+}
+.introduction__content__left-column__content__button__second-button {
+  background-color: white;
+  color: #8FB7D3;
+  font-weight: 500;
+  clip-path: polygon(8% 1%, 100% 0, 100% 100%, 0% 100%);
+}
+.introduction__content__right-column {
+  flex: 1;
+  background-color: #F4B72F;
+  clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%);
+}
+
+.summary {
+  background: url("Images/Content1.jpg") no-repeat center, linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+  background-size: cover;
+  box-shadow: inset 0 #2E4273;
+}
+.summary__skills {
+  display: flex;
+  padding: 3% 0;
+}
+.summary__skills__first img {
+  width: 50%;
+}
+.summary__skills__first h2 {
+  margin-bottom: 10px;
+}
+
+#content__first-row__left-column {
+  background-color: #8FB7D3;
+}
+#content__first-row__right-column {
+  background: url("Images/Content3.jpg") no-repeat left top;
+  background-size: cover;
+}
+#content__first-row__right-column img {
+  width: 100%;
+}
+#content__second-row__left-column {
+  background: url("Images/Content2.jpg") no-repeat left top;
+  background-size: cover;
+}
+#content__second-row__left-column img {
+  width: 100%;
+}
+#content__second-row__right-column {
+  background-color: #8FB7D3;
+}
+#content__second-row__right-column h2, #content__second-row__right-column p {
+  color: #2E4273;
+}
+#content__third-row__left-column {
+  background-color: #F4B72F;
+}
+#content__third-row__left-column p {
+  color: #2E4273;
+}
+#content__third-row__right-column {
+  background: url("Images/Content1.jpg") no-repeat left top;
+  background-size: cover;
+}
+#content__third-row__right-column img {
+  width: 100%;
+}
+
+.content__row {
+  min-height: 45vh;
+}
+
+.slider {
+  color: #2E4273;
+  overflow: hidden;
+}
+.slider__content {
+  display: flex;
+  position: relative;
+  transition: transform 0.25s linear;
+}
+.slider__content__item {
+  padding: 3%;
+  flex: 1 0 100%;
+}
+.slider__content__item__content {
+  position: absolute;
+  inset: 0;
+}
+.slider__content__item__content__left-column img {
+  width: 100%;
+}
+.slider__content__item__content__right-column {
+  display: block;
+  margin: auto;
+}
+.slider__content__nav {
+  text-align: center;
+}
+.slider__content__nav__dot {
+  height: 2vh;
+  width: 2vh;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.footer {
+  padding: 5% 5% 5% 0;
+  clear: both;
+  background-color: #2E4273;
+  font-size: 1rem;
+}
+.footer p {
+  font-size: 0.9rem;
+}
+.footer__logo img {
+  width: 100%;
+}
+.footer__links ul {
+  list-style-type: none;
+}
+.footer__links ul li {
+  padding-bottom: 3%;
+  border-bottom: 1px solid white;
+}
+.footer__links ul li:hover {
+  border-bottom: 2px solid yellow;
+}
+.footer__links ul li:last-child {
+  padding-right: 0;
+}
+.footer__links ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.carousel__background {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+.carousel__background img {
+  width: 100%;
+}
+
+.information, .course {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: black;
+  padding-top: 3%;
+}
+.information h5, .information h6, .course h5, .course h6 {
+  border-bottom: 1px solid #2E4273;
+  padding: 2% 0;
+  opacity: 50%;
+}
+.information h5, .course h5 {
+  display: list-item;
+}
+.information h6, .course h6 {
+  text-indent: 10px;
+}
+.information button, .course button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.information button:hover, .information button:active, .course button:hover, .course button:active {
+  color: #2E4273;
+  opacity: 100%;
+  font-weight: bold;
+}
+.information__right-column, .course__right-column {
+  padding: 2%;
+  line-height: 3vh;
+}
+.information__introduction__content, .course__introduction__content {
+  display: flex;
+  height: 40vh;
+}
+.information__introduction__content__left-column, .course__introduction__content__left-column {
+  flex: 1;
+  background-color: #8FB7D3;
+  clip-path: polygon(0 6%, 100% 28%, 100% 100%, 0% 100%);
+}
+.information__introduction__content__right-column, .course__introduction__content__right-column {
+  flex: 1;
+  background-color: #F4B72F;
+  clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%);
+}
+
+.course__title {
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+}
+.course__background img {
+  width: 100%;
+}
+
+.admission__background img {
+  width: 100%;
+  height: 100vh;
+}
+.admission__content {
+  color: #2E4273;
+}
+
+.sign-in__status-bar, .sign-up__status-bar {
+  background-color: #2E4273;
+  display: flex;
+}
+.sign-in__status-bar__left-column, .sign-up__status-bar__left-column {
+  display: flex;
+}
+.sign-in__status-bar__right-column, .sign-up__status-bar__right-column {
+  text-transform: uppercase;
+}
+.sign-in__form__left-column__title h2, .sign-up__form__left-column__title h2 {
+  text-transform: uppercase;
+  margin-bottom: 7%;
+  font-size: 1.3rem;
+  font-family: "SFU ClearGothic", serif;
+}
+.sign-in__form__right-column__title h2, .sign-up__form__right-column__title h2 {
+  font-size: 1.3rem;
+  margin: 25% 0 7%;
+  text-transform: uppercase;
+  font-family: "SFU ClearGothic", serif;
+}
+.sign-in__form, .sign-up__form {
+  color: #8FB7D3;
+}
+.sign-in__form__left-column__header, .sign-up__form__left-column__header {
+  color: #2E4273;
+  margin: 7% 0;
+  font-size: 1.7rem;
+  font-family: "SFU ClearGothic", serif;
+  font-style: italic;
+}
+.sign-in__form label, .sign-up__form label {
+  display: block;
+}
+.sign-in__form input, .sign-up__form input {
+  background-color: #E5E4E5;
+  margin: 2% 0;
+  width: 100%;
+  font-size: 15px;
+  height: 2rem;
+  border: 0;
+}
+.sign-in__form p, .sign-up__form p {
+  margin: 3% 0;
+}
+.sign-in__form p a, .sign-up__form p a {
+  text-decoration: none;
+  color: #2E4273;
+}
+.sign-in__form__email, .sign-in__form__password, .sign-up__form__email, .sign-up__form__password {
+  display: block;
+}
+
+.sign-up__form {
+  display: flex;
+}
+.sign-up__form__left-column {
+  flex: 1;
+}
+.sign-up__form__right-column {
+  flex: 1;
+}
+
+.forget-password__form__header {
+  color: #2E4273;
+}
+.forget-password__form__header h2 {
+  text-transform: uppercase;
+  margin: 4% 0;
+  font-size: 1.3rem;
+  font-family: "SFU ClearGothic", serif;
+}
+.forget-password__form__quote {
+  margin-bottom: 5%;
+}
+.forget-password__form__email label {
+  color: #8FB7D3;
+}
+.forget-password__form__email input {
+  display: block;
+  background-color: #E5E4E5;
+  width: 50%;
+  font-size: 15px;
+  height: 2rem;
+  border: 0;
+  margin: 3% 0;
+}
+.forget-password__form__quote {
+  color: #2E4273;
+}
+
+.testimonial__first-section {
+  display: flex;
+}
+.testimonial__first-section__avatar {
+  flex: 2;
+  height: 5vh;
+}
+.testimonial__first-section__avatar img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.testimonial__first-section__content {
+  flex: 10;
+  color: #2E4273;
+}
+
+/*# sourceMappingURL=style.css.map */
