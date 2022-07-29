@@ -68,8 +68,12 @@ body {
     font-weight: normal;
     font-style: normal; }
   body p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7rem; }
+
+.title {
+  font-family: "SFU ClearGothic", Arial, sans-serif;
+  color: #8FB7D3; }
 
 .menu {
   position: fixed;
@@ -81,74 +85,68 @@ body {
     width: 100%;
     padding: 7% 0 5%; }
   .menu__links {
+    margin: auto;
     clear: both; }
     .menu__links ul {
       display: flex; }
     .menu__links li {
       display: inline-block;
-      padding: 2% 4% 0 0;
-      font-size: 1.1rem;
-      border-bottom: 1px solid white;
-      opacity: 0.8; }
+      padding-right: 4%;
+      font-size: 1.1rem; }
       .menu__links li:hover {
-        border-bottom: 1px solid yellow;
         opacity: 1; }
       .menu__links li:last-child {
         padding-right: 0; }
       .menu__links li a {
         text-decoration: none;
         color: white; }
-    .menu__links__second-links {
-      float: right; }
-      .menu__links__second-links li {
-        padding-top: 0;
-        margin-top: 20px;
-        border-bottom: none; }
+        .menu__links li a:hover {
+          color: #ffbb16; }
 
-.introduction__background {
+.introduction__background, .admission__background {
   background-image: url("../Images/IMG_7526.jpg");
   min-height: 100vh;
   background-size: cover;
   background-position: center bottom;
   position: relative; }
-.introduction__content {
+.introduction__content, .admission__content {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
   height: 40vh; }
-  .introduction__content__left-column {
+  .introduction__content__left-column, .admission__content__left-column {
     flex: 1;
     background-color: #8FB7D3;
     padding: 0 4% 2% 0;
     clip-path: polygon(0 6%, 100% 28%, 100% 100%, 0% 100%); }
-    .introduction__content__left-column h2 {
+    .introduction__content__left-column h2, .admission__content__left-column h2 {
       font-size: 2rem; }
-    .introduction__content__left-column h5 {
+    .introduction__content__left-column h5, .admission__content__left-column h5 {
       font-size: 16px;
       margin: 20px 0; }
-    .introduction__content__left-column__content {
+    .introduction__content__left-column__content, .admission__content__left-column__content {
       padding-left: 10%;
       display: block;
       padding-top: 10vh;
       margin: auto; }
-      .introduction__content__left-column__content__button__first-button {
+      .introduction__content__left-column__content__button__first-button, .admission__content__left-column__content__button__first-button {
         padding: 2% 6% 2% 4%;
-        background-color: #F4B72F;
+        background-color: #ffbb16;
         color: white;
         font-weight: 500;
         clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%); }
-      .introduction__content__left-column__content__button__second-button {
+      .introduction__content__left-column__content__button__second-button, .admission__content__left-column__content__button__second-button {
         margin-left: -4%;
         padding: 2% 4% 2% 6%;
         background-color: white;
         color: #8FB7D3;
         font-weight: 500;
         clip-path: polygon(8% 1%, 100% 0, 100% 100%, 0% 100%); }
-  .introduction__content__right-column {
+  .introduction__content__right-column, .admission__content__right-column {
     flex: 1;
-    background-color: #F4B72F;
+    background-color: #ffbb16;
     clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%); }
 
 .summary {
@@ -190,7 +188,7 @@ body {
 .content #content__third-row {
   margin-top: -7%; }
   .content #content__third-row__left-column {
-    background-color: #F4B72F; }
+    background-color: #ffbb16; }
     .content #content__third-row__left-column p {
       color: #2E4273; }
   .content #content__third-row__right-column {
@@ -234,12 +232,14 @@ body {
         display: inline-block; }
 
 .footer {
+  color: white;
   padding: 5% 5% 5% 0;
   clear: both;
   background-color: #2E4273;
   font-size: 1.0rem; }
   .footer p {
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    margin-bottom: 10px; }
   .footer__logo img {
     width: 100%; }
   .footer__links ul {
@@ -255,62 +255,74 @@ body {
         text-decoration: none;
         color: white; }
 
-.carousel__background {
-  display: flex;
-  overflow: hidden;
-  position: relative; }
-  .carousel__background img {
-    width: 100%; }
+.carousel img {
+  width: 100%; }
 
-.information, .course {
+.information, .course, .admission {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 40% 50%;
   color: black;
   padding-top: 3%; }
-  .information h5, .information h6, .course h5, .course h6 {
+  .information__buttons, .course__buttons, .admission__buttons {
+    text-transform: uppercase; }
+  .information h4, .information h5, .information h6, .course h4, .course h5, .course h6, .admission h4, .admission h5, .admission h6 {
     border-bottom: 1px solid #2E4273;
-    padding: 2% 0; }
-  .information h5, .course h5 {
+    padding: 2% 0;
+    opacity: 0.8; }
+  .information h4, .course h4, .admission h4 {
     display: list-item; }
-  .information h6, .course h6 {
+  .information h5, .course h5, .admission h5 {
     text-indent: 10px; }
-  .information button, .course button {
+  .information h6, .course h6, .admission h6 {
+    text-indent: 20px; }
+    .information h6 ::before, .course h6 ::before, .admission h6 ::before {
+      content: "+ "; }
+  .information button, .course button, .admission button {
     background: none;
     border: none;
     margin: 0;
-    padding: 0; }
-    .information button:hover, .information button:active, .course button:hover, .course button:active {
+    padding: 0;
+    text-align: left; }
+    .information button:hover, .information button:active, .course button:hover, .course button:active, .admission button:hover, .admission button:active {
       color: #2E4273;
       opacity: 100%;
       font-weight: bold; }
-  .information__right-column, .course__right-column {
-    padding: 2%;
-    line-height: 3vh; }
-  .information__introduction__content, .course__introduction__content {
+  .information__left-column, .course__left-column, .admission__left-column {
+    text-align: left; }
+  .information__right-column, .course__right-column, .admission__right-column {
+    line-height: 3vh;
+    color: #2E4273; }
+    .information__right-column img, .course__right-column img, .admission__right-column img {
+      width: 100%; }
+    .information__right-column #show__title, .course__right-column #show__title, .admission__right-column #show__title {
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: capitalize;
+      text-align: justify-all; }
+  .information__introduction__content, .course__introduction__content, .admission__introduction__content {
     display: flex;
     height: 40vh; }
-    .information__introduction__content__left-column, .course__introduction__content__left-column {
+    .information__introduction__content__left-column, .course__introduction__content__left-column, .admission__introduction__content__left-column {
       flex: 1;
       background-color: #8FB7D3;
       clip-path: polygon(0 6%, 100% 28%, 100% 100%, 0% 100%); }
-    .information__introduction__content__right-column, .course__introduction__content__right-column {
+    .information__introduction__content__right-column, .course__introduction__content__right-column, .admission__introduction__content__right-column {
       flex: 1;
-      background-color: #F4B72F;
-      clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%); }
+      background-color: #ffbb16;
+      clip-path: polygon(0 44%, 100% 73%, 100% 100%, 0% 100%); }
 
 .course__title {
   text-align: center;
-  color: black;
-  text-transform: uppercase; }
+  color: black; }
 .course__background img {
   width: 100%; }
 
-.admission__background img {
-  width: 100%;
-  height: 100vh; }
-.admission__content {
-  padding: 5% 0;
-  color: #2E4273; }
+.admission {
+  margin-top: 10%; }
+  .admission__content {
+    color: #2E4273; }
+    .admission__content img {
+      width: 100%; }
 
 .sign-in__status-bar, .sign-up__status-bar {
   background-color: #2E4273;

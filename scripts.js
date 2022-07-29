@@ -1,5 +1,6 @@
 const HOME_DIV = document.getElementById('home');
 const INTRODUCTION_DIV = document.getElementById('introduction');
+const ADMISSION_DIV = document.getElementById('admission');
 const COURSE_DIV = document.getElementById('course');
 const MAIN_BLUE = "#2E4273";
 window.addEventListener("load", function () {
@@ -85,30 +86,52 @@ window.addEventListener("load", function () {
     //introduction page
 
     if(INTRODUCTION_DIV !== null) {
+        const titleShow = document.querySelector("#show__title");
          const contentDiv = document.querySelectorAll(".information__right-column__content");
         document.querySelector(".information__right-column").classList.add("hidden")
         const informationButtons = document.querySelectorAll('.information__buttons');
         informationButtons.forEach((eachButton, index) => {
-            eachButton.addEventListener("click", () => {
+            eachButton.addEventListener("click", (event) => {
                 eachButton.style.fontWeight= "bold";
                 eachButton.style.color= MAIN_BLUE;
                 document.querySelector(".information__right-column").classList.remove("hidden")
                 let currentDivContent = contentDiv[index];
+
                 currentDivContent.classList.remove("hidden");
                 currentDivContent.classList.add("visible");
+                titleShow.innerHTML = eachButton.innerHTML;
                 for(let i = 0; i < contentDiv.length; i++) {
                     if(i !== index) {
                         contentDiv[i].classList.add("hidden");
                         informationButtons[i].style.fontWeight="normal"
-
                     }
                 }
             } )
         })
     }
-    const testRedirect = document.getElementById('testRedirect');
-    testRedirect.addEventListener('click', (event) =>{
-        event.preventDefault();
-        location.href = "signin.html";
-    })
+    //admission page
+    if(ADMISSION_DIV !== null) {
+        const titleShow = document.querySelector("#show__title");
+        const contentDiv = document.querySelectorAll(".admission__right-column__content");
+        document.querySelector(".admission__right-column").classList.add("hidden")
+        const admissionButtons = document.querySelectorAll('.admission__buttons');
+        admissionButtons.forEach((eachButton, index) => {
+            eachButton.addEventListener("click", (event) => {
+                eachButton.style.fontWeight= "bold";
+                eachButton.style.color= MAIN_BLUE;
+                document.querySelector(".admission__right-column").classList.remove("hidden")
+                let currentDivContent = contentDiv[index];
+
+                currentDivContent.classList.remove("hidden");
+                currentDivContent.classList.add("visible");
+                titleShow.innerHTML = eachButton.innerHTML;
+                for(let i = 0; i < contentDiv.length; i++) {
+                    if(i !== index) {
+                        contentDiv[i].classList.add("hidden");
+                        admissionButtons[i].style.fontWeight="normal"
+                    }
+                }
+            } )
+        })
+    }
 })

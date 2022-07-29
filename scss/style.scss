@@ -48,7 +48,7 @@ table {
 //Reset CSS
 $mainBlue : #2E4273;
 $secondaryBlue : #8FB7D3;
-$mainYellow : #F4B72F;
+$mainYellow : #ffbb16;
 @mixin setBackgroundSite($urlBackground) {
   background: url($urlBackground) no-repeat left top;
   background-size: cover;
@@ -79,9 +79,13 @@ body {
     font-style: normal;
   }
   p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7rem;
   }
+}
+.title {
+  font-family: "SFU ClearGothic", Arial, sans-serif;
+  color: $secondaryBlue;
 }
 .menu {
   position: fixed;
@@ -89,7 +93,6 @@ body {
   right: 0;
   left: 0;
   z-index: 2;
-    //background-color: $mainBlue;
     &__logo{
       img{
         width: 100%;
@@ -97,39 +100,32 @@ body {
       }
     }
     &__links{
+      margin: auto;
       ul{
         display: flex;
       }
       li{
         display: inline-block;
-        padding: 2% 4% 0 0;
+        padding-right: 4%;
         font-size: 1.1rem ;
-        border-bottom: 1px solid white;
-        opacity: 0.8;
         &:hover{
-          border-bottom: 1px solid yellow;
           opacity: 1;
         }
         &:last-child {
         padding-right: 0;
       }
-      a{
-        text-decoration: none;
-        color: white;
-      }
-      }
-      &__second-links {
-        float: right;
-        li{
-          padding-top: 0;
-          margin-top: 20px;
-          border-bottom: none;
+        a{
+          text-decoration: none;
+          color: white;
+          &:hover{
+            color: $mainYellow;
+          }
         }
       }
       clear: both;
     }
 }
-.introduction {
+.introduction, .admission {
   &__background {
     background-image: url("../Images/IMG_7526.jpg");
     min-height: 100vh;
@@ -311,12 +307,14 @@ body {
 }
 
 .footer {
+  color: white;
   padding: 5% 5% 5% 0;
   clear: both;
   background-color: $mainBlue;
   font-size: 1.0rem;
   p {
     font-size: 0.9rem;
+    margin-bottom: 10px;
   }
   &__logo {
     img{
@@ -345,47 +343,63 @@ body {
 }
 
 .carousel {
-  &__background {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    img {
-      width: 100%;
+  img {
+    width: 100%;
 
-    }
   }
 }
-
-.information, .course{
+.information, .course, .admission{
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 40% 50%;
   color: black;
   padding-top: 3%;
-  h5, h6 {
+  &__buttons{
+    text-transform: uppercase;
+  }
+  h4, h5, h6 {
     border-bottom: 1px solid $mainBlue;
     padding: 2% 0;
-    //opacity: 50%;
+    opacity: 0.8;
   }
-  h5{
+  h4{
     display: list-item;
   }
-  h6 {
+  h5 {
     text-indent: 10px;
+  }
+  h6{
+    ::before{
+      content: "+ ";
+    }
+    text-indent: 20px;
   }
   button {
     background:none;
     border:none;
     margin:0;
     padding:0;
+    text-align: left;
     &:hover, &:active {
       color: $mainBlue;
       opacity: 100%;
       font-weight: bold;
     }
   }
+  &__left-column{
+    text-align: left;
+  }
   &__right-column{
-    padding: 2%;
     line-height: 3vh;
+    color: $mainBlue;
+    img{
+      width: 100%;
+    }
+    #show__title{
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: capitalize;
+      text-align: justify-all;
+    }
   }
   &__introduction, {
     &__content {
@@ -399,7 +413,7 @@ body {
       &__right-column {
         flex: 1;
         background-color: $mainYellow;
-        clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 44%, 100% 73%, 100% 100%, 0% 100%);
       }
     }
   }
@@ -409,7 +423,6 @@ body {
   &__title {
     text-align: center;
     color: black;
-    text-transform: uppercase;
   }
   &__background {
    img {
@@ -419,15 +432,12 @@ body {
 }
 
 .admission{
-  &__background {
+  margin-top: 10%;
+  &__content{
+    color: $mainBlue;
     img{
       width: 100%;
-      height: 100vh;
     }
-  }
-  &__content{
-    padding: 5% 0;
-    color: $mainBlue;
   }
 }
 
