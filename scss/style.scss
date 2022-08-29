@@ -46,22 +46,34 @@ table {
 }
 
 //Reset CSS
+//Color Var
 $mainBlue : #2E4273;
 $secondaryBlue : #8FB7D3;
 $mainYellow : #ffbb16;
+//size & spacing var
+$STANDARD_MARGIN_SIZE : 15px;
 @mixin setBackgroundSite($urlBackground) {
-  background: url($urlBackground) no-repeat left top;
+  background: url($urlBackground) no-repeat center center ;
   background-size: cover;
-  img{
-    width: 100%;
-  }
+}
+@mixin skewButton() {
+  clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
 }
 
-.visible {
-  display: block;
+@mixin centerHorizontalVertical{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hidden {
-  display: none;
+
+html  {
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
 }
 
 body {
@@ -69,30 +81,34 @@ body {
   color: white;
   h1 { font-size: 2em; }
   h2 { font-size: 1.5em; }
-  h3 { font-size: 1.3em; }
+  h3 { font-size: 1.17em; }
   h4 { font-size: 1em; }
-  h5 { font-size: 0.9em; }
-  h6 { font-size: 0.8em; }
+  h5 { font-size: 0.83em; }
+  h6 { font-size: 0.67em; }
 
   h1,h2,h3,h4,h5,h6 {
-    font-weight: normal;
     font-style: normal;
+    font-family: "SFU ClearGothic", Arial, sans-serif;
+    margin-bottom: $STANDARD_MARGIN_SIZE;
   }
   p {
     font-size: 16px;
-    line-height: 1.7rem;
+    line-height: 2rem;
   }
 }
 .title {
   font-family: "SFU ClearGothic", Arial, sans-serif;
   color: $secondaryBlue;
 }
+#home{
+  position: relative;
+}
 .menu {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 7;
     &__logo{
       img{
         width: 100%;
@@ -126,139 +142,182 @@ body {
     }
 }
 .introduction, .admission {
+  position: relative;
   &__background {
-    background-image: url("../Images/IMG_7526.jpg");
+    padding: 0;
+    width: 100%;
     min-height: 100vh;
     background-size: cover;
-    background-position: center bottom;
-    position: relative;
+    background-image: url("../Images/background_1.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
   }
-  &__content {
+
+  &__quote{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    overflow: hidden;
+    line-height: normal;
+    #quote__title{
+      text-transform: capitalize;
+      max-width: 340px;
+      margin-bottom: $STANDARD_MARGIN_SIZE;
+    }
+
+    #quote__description {
+      max-width: 450px;
+      margin-bottom: $STANDARD_MARGIN_SIZE;
+    }
+    a{
+      text-transform: uppercase;
+      color: $secondaryBlue;
+      font-weight: bold;
+      background-color: white;
+      border-radius: 0;
+      min-width: 150px;
+      padding: 6px 12px;
+      @include skewButton;
+
+      &:hover {
+        background-color: $mainYellow;
+        color: white;
+      }
+    }
+  }
+  &__slogan {
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
+    justify-content: space-around;
     height: 40vh;
-    &__left-column {
-      h2{
-        font-size: 2rem;
-      }
-      flex: 1;
-      background-color: $secondaryBlue ;
-      padding: 0 4% 2% 0;
-      clip-path: polygon(0 6%, 100% 28%, 100% 100%, 0% 100%);
-      h5 {
-        font-size: 16px;
-        margin: 20px 0;
+    .slogan__item{
+      &__image {
+        margin-bottom:$STANDARD_MARGIN_SIZE;
       }
       &__content {
-        padding-left: 10%;
-        display: block;
-        padding-top: 10vh;
-        margin: auto;
-        &__button {
-          &__first-button {
-            padding: 2% 6% 2% 4%;
-            background-color: $mainYellow;
-            color: white;
-            font-weight: 500;
-            clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
-          }
-          &__second-button {
-            margin-left: -4%;
-            padding: 2% 4% 2% 6%;
-            background-color: white;
-            color: $secondaryBlue;
-            font-weight: 500;
-            clip-path: polygon(8% 1%, 100% 0, 100% 100%, 0% 100%);
-          }
-        }
-     }
-    }
-    &__right-column {
-      flex: 1;
-      background-color: $mainYellow;
-      clip-path: polygon(0 34%, 100% 73%, 100% 100%, 0% 100%);
-    }
-  }
-}
-.summary {
-  background: url("../Images/Content1.jpg") no-repeat center , linear-gradient(rgba(0,0,0,0.5), $mainBlue);
-  background-blend-mode: overlay;
-  background-size: cover;
-  box-shadow:inset 0 $mainBlue;
-  &__skills {
-    display: flex;
-    padding: 3% 0;
-    &__first {
-      margin-bottom: 10%;
-      img {
-        width: 50%;
-      }
-      h3{
-        margin: 10px 0;
-        color: white;
-      }
-      p{
-         opacity: 0.8;
+        font-size: 30px;
+        min-width: 200px;
       }
     }
   }
 }
 //#TODO style lại phần ô trang chủ
-.content {
   #content {
     &__first-row {
-      //margin-top: -10%;
       &__left-column {
-        background-color: $secondaryBlue;
-        //clip-path: polygon(0 0, 100% 10%, 100% 86%, 0 70%);
+        @include setBackgroundSite("../Images/index_1.jpeg");
       }
 
       &__right-column {
-        @include setBackgroundSite("../Images/Content3.jpg");
-        //clip-path: polygon(0 10%, 100% 29%, 100% 100%, 0 86%);
+        background-color: $secondaryBlue;
+        @include centerHorizontalVertical;
+
+        #first-row-content {
+        }
+      }
+    }
+
+    &__second-row, &__third-row {
+      min-height: 385px;
+      position: relative;
+      z-index: 6;
+      &__left-column {
+        position: absolute;
+        inset: 0;
+      }
+
+      &__right-column {
+        position: absolute;
+        inset: 0 50%;
       }
     }
 
     &__second-row {
-      margin-top: -7%;
       &__left-column {
-        @include setBackgroundSite("../Images/Content2.jpg");
-        //clip-path: polygon(0 0, 100% 10%, 100% 86%, 0 70%);
+        @include setBackgroundSite("../Images/index_2.png");
+        &:hover{
+          transition: all .3s ease;
+        }
       }
 
       &__right-column {
-        background-color: $secondaryBlue;
-        //clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 86%);
-
-        h2, p {
-          color: $mainBlue;
-        }
+        margin-left: 10px;
+        @include setBackgroundSite("../Images/index_3.png")
       }
     }
 
     &__third-row {
-      margin-top: -7%;
       &__left-column {
-        background-color: $mainYellow;
-        //clip-path: polygon(0 0, 100% 10%, 100% 86%, 0 70%);
-        p {
-          color: $mainBlue;
-        }
+        @include setBackgroundSite("../Images/index_4.png")
       }
 
       &__right-column {
-        @include setBackgroundSite("../Images/Content1.jpg");
-        //clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 86%);
+        //margin-left: 10px;
+        @include setBackgroundSite("../Images/index_5.png")
+      }
+    }
+
+  }
+.content__hover{
+  background-color: $mainYellow;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  padding: 10%;
+  text-align: justify;
+  &__title{
+    font-size: 26px;
+    line-height: 36px;
+    overflow: hidden;
+    max-height: 101px;
+  }
+  &__description {
+    line-height: 22px;
+    max-height: 88px;
+    overflow: hidden;
+    color: $mainBlue;
+  }
+  &__button{
+    padding-top: 15px;
+    a{
+      text-transform: uppercase;
+      color: $mainYellow;
+      font-weight: bold;
+      background-color: white;
+      border-radius: 0;
+      min-width: 150px;
+      padding: 6px 12px;
+      @include skewButton;
+      &:hover{
+        background-color: $secondaryBlue;
+        color: white;
+        border: none;
       }
     }
   }
 }
+.hint-trigger{
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  background-color: $mainYellow;
+  padding: 2% 7%;
+  &:after{
+    content: "+";
+    font-size: 6rem;
 
-.content__row {
-  min-height: 45vh;
+  }
+
+  .plus-symbol {
+    padding: 10%;
+    color: red;
+    text-align: justify;
+  }
 }
 
 .slider {
@@ -290,6 +349,7 @@ body {
         &__right-column {
           display: block;
           margin: auto;
+          padding: 5px;
         }
       }
     }
@@ -334,6 +394,7 @@ body {
           padding-right: 0;
         }
         a{
+          text-transform: uppercase;
           text-decoration: none;
           color: white;
         }
@@ -348,18 +409,20 @@ body {
 
   }
 }
-.information, .course, .admission{
+.information, .course, .admission, .testimonial{
   display: grid;
   grid-template-columns: 40% 50%;
   color: black;
   padding-top: 3%;
   &__buttons{
     text-transform: uppercase;
+    font-weight: 700;
   }
   h4, h5, h6 {
     border-bottom: 1px solid $mainBlue;
-    padding: 2% 0;
+    padding: 3% 0;
     opacity: 0.8;
+    font-weight: 700;
   }
   h4{
     display: list-item;
@@ -439,7 +502,64 @@ body {
       width: 100%;
     }
   }
+  &__left-column {
+  }
 }
+
+.testimonial {
+  &__side-video {
+    &__title {
+      text-transform: uppercase;
+      margin: 10px 0;
+      color: $mainBlue;
+      font-weight: 700;
+    }
+    &__content {
+      iframe{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.faq {
+  background-color: $secondaryBlue;
+  &__header {
+    font-size: 20px;
+    color: $mainBlue;
+    background-color: $mainYellow;
+    padding: 8px 15px;
+    font-family: "SFU Clear Gothic",Arial,sans-serif;
+  }
+  &__content {
+    background-color: #e7f0f7;
+    &__item {
+      padding: 5px 30px 10px 35px;
+      border-bottom: 1px solid $mainBlue;
+      &__title {
+        cursor: pointer;
+        color: #979797;
+        &:hover {
+          color: $mainBlue;
+        }
+        h4{
+          display: inline-block;
+          border-bottom: none;
+          padding: 0;
+        }
+        img{
+          float: right;
+        }
+     }
+      &__content{
+        margin-top: 5px;
+        display: none;
+        color: $mainBlue;
+      }
+    }
+  }
+}
+
 
 .sign-in, .sign-up {
   &__status-bar {
@@ -545,6 +665,7 @@ body {
         height: 2rem;
         border: 0;
         margin: 3% 0;
+        color: $mainBlue;
       }
     }
     &__quote{
@@ -571,4 +692,90 @@ body {
       color:$mainBlue;
     }
   }
+}
+
+.contact{
+  &__primary{
+    background-color: $mainBlue;
+    display: flex;
+    &__image {
+      flex: 3;
+      img{
+        width: 100%;
+      }
+    }
+    &__form{
+      h2{
+        font-size: 50px;
+        margin-bottom: $STANDARD_MARGIN_SIZE;
+      }
+      flex: 7;
+      label{
+        display: block;
+      }
+        &__line {
+          display: flex;
+          .first__item, .second__item {
+            flex: 1;
+           label{
+             margin-bottom: $STANDARD_MARGIN_SIZE;
+           }
+            input {
+              margin-bottom: $STANDARD_MARGIN_SIZE;
+              width: 90%;
+              padding: 6px 12px;
+              border: 1px solid #ccc;
+            }
+          }
+        }
+      textarea{
+        display: block;
+        resize: none;
+        width: 95%;
+        padding: 6px 12px;
+        margin: $STANDARD_MARGIN_SIZE 0;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}
+.contact{
+  &__information {
+      display: flex;
+      &__map {
+        flex: 4;
+      }
+      &__content {
+        flex: 6;
+        color: $mainBlue;
+        p{
+          margin: $STANDARD_MARGIN_SIZE 0;
+        }
+        strong{
+          font-weight: bold;
+        }
+      }
+    padding: 15px;
+  }
+}
+
+//MODIFIED ON_OFF
+.visible {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.active-accordion{
+  color: $mainBlue;
+  cursor: pointer;
+}
+.rotate_up{
+  transform: rotate(180deg);
+}
+.white-text{
+  color: white;
+}
+.main-blue-text{
+  color: $mainBlue;
 }

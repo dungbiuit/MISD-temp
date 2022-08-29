@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Tri Ân | MISD</title>
+    <title>Học Viên | MISD</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Chương trình du học bác sĩ nha khoa quốc tế">
@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="Images/MISD%20Logo.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/scss/style.css">
 </head>
 <body>
     <div id="home" class="container-fluid">
@@ -21,26 +21,124 @@
                 <ul class="menu__links__first-links">
                     <li><a href="index.html">TRANG CHỦ</a></li>
                     <li><a href="introduction.html">GIỚI THIỆU</a></li>
-                    <li><a href="course.html">CHƯƠNG TRÌNH HỌC</a></li>
                     <li><a href="admission.html">TUYỂN SINH</a></li>
-                    <li><a href="#">Q&A</a></li>
-                    <li><a href="testimonial.html">TESTIMONIAL</a></li>
-                </ul>
-                <ul class="menu__links__second-links col-md-5">
-                    <li><a href="#">ĐĂNG NHẬP</a></li>
-                    <li><a href="#">TƯ VẤN ONLINE</a></li>
+                    <li><a href="course.html">CHƯƠNG TRÌNH HỌC</a></li>
+                    <li><a href="testimonial.html">HỌC VIÊN</a></li>
+                    <li><a href="contact.html">LIÊN HỆ</a></li>
                 </ul>
             </div>
         </div>
-        <div class="row testimonial">
-            <div class="testimonial__first-section offset-md-1 col-md-10">
-                <div class="testimonial__first-section__avatar">
-                    <img src="Images/Person1.jpg" alt="" srcset="">
+        <div class="row testimonial" id="testimonial">
+            <div class="testimonial__left-column offset-md-2 col-md-10">
+                <div class="faq">
+                    <div class="faq__header">
+                        <h3>Các câu hỏi thường gặp</h3>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Con người Indonesia như thế nào?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Hiền hoà, dễ chịu, chăm chỉ<br>
+                                Nghiêm túc, chân thành<br>
+                                Tinh thần dân tộc cao</p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4 >Bao nhiêu % dân đạo hồi?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>70%</p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Có an toàn không?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>An toàn (ít bạo động vì Medan là thành phố chủ yếu người hoa)<br>
+                                Vấn để khủng bố là vấn đề toàn cầu, ngay cả Pháp, Anh, Đức, Mỹ hiện nay đều bị khủng bố.<br>
+                                Đạo hồi Indonesia rất ghét hồi giáo cực đoan khủng bố, họ ý thức cao và an ninh quốc gia rất chặt chẽ.</p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Nhiều động đất đúng không? </h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Nằm ngoài tâm đông đất (trung tâm đông đất là JKT)<br>
+                                Indonesia là các đảo, nằm trên vanh đai núi lửa, giống Nhật Bản, rất hay động đất. Nhưng đều dự đoán và xử lý kịp thời.</p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Đi lại bằng phương tiện gì?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>
+                                Taxi, Grab, xe máy, xe oto cá nhân
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Có hiện đại như Singapore không?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Không như Sing, giống Sài Gòn hơn. Nhưng không có quán bia và cafe nhiều như Sài Gòn.</p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Ăn uống có thuận tiện không? Có tự nấu ăn không? </h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Trường có bếp tự nấu ăn, hoặc đặt ăn tháng (sinh viên chia sẻ kinh nghiệm) </p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Luật pháp có nghiêm không? Có tệ nạn xã hội nhiều không?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Nghiêm, ít tệ nạn (buôn bán ma tuý dù ít hay nhiều đều tử hình) </p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Ăn uống thế nào?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Thức ăn giống Thái. </p>
+                        </div>
+                    </div>
+                    <div class="faq__content__item">
+                        <div class="faq__content__item__title">
+                            <h4>Chi phí sinh hoạt mắc hay rẻ?</h4>
+                            <img src="Images/caret-down-fill.svg" alt="">
+                        </div>
+                        <div class="faq__content__item__content">
+                            <p>Rẻ, 200 usd / tháng </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial__first-section__content">
-                    <blockquote>
-                        Trước khi tham gia MISD Indonesia, em đã có 4 năm học tập tại Singapore chuyên ngành Marketing. Lý do em lựa chọn MISD Indonesia là vì em cảm thấy ngành Nha có nhiều triển vọng trong hiện tại và tương lai sau này. Hy vọng sau 5 năm học, em sẽ có đủ kiến thức và sự tự tin để làm việc tại Việt Nam cũng như các nước thuộc khối ASEAN.
-                    </blockquote>
+                <div class="testimonial__side-video">
+                    <div class="testimonial__side-video__title">
+                        cảm nhận học viên
+                    </div>
+                    <div class="testimonial__side-video__content">
+                        <iframe height="250" src="https://www.youtube.com/embed/A5-ZRpjAHgM" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,8 +159,6 @@
                     <li><a href="introduction.html">GIỚI THIỆU</a></li>
                     <li><a href="course.html">CHƯƠNG TRÌNH HỌC</a></li>
                     <li><a href="admission.html">TUYỂN SINH</a></li>
-<!--                    <li><a href="#">Q&A</a></li>-->
-<!--                    <li><a href="#">TESTIMONIAL</a></li>-->
                 </ul>
             </div>
         </div>

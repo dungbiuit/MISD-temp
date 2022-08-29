@@ -2,7 +2,27 @@ const HOME_DIV = document.getElementById('home');
 const INTRODUCTION_DIV = document.getElementById('introduction');
 const ADMISSION_DIV = document.getElementById('admission');
 const COURSE_DIV = document.getElementById('course');
+const TESTIMONIAL_DIV = document.getElementById('testimonial');
 const MAIN_BLUE = "#2E4273";
+
+const accordionFunction = () => {
+    const FAQ_Accordions = document.getElementsByClassName("faq__content__item");
+    const arrayFAQ = Array.from(FAQ_Accordions)
+    arrayFAQ.forEach(eachAccordion  => {
+        eachAccordion.addEventListener("click", () => {
+            let divToggleHideShow_FAQ =  eachAccordion.childNodes[1];
+
+            console.log("div content", divToggleHideShow_FAQ)
+            // TODO: chỉnh lại vị trí của nút mũi tên
+            const arrowDown = divToggleHideShow_FAQ.childNodes[3]
+            if(arrowDown.nodeName  === "IMG") {
+                arrowDown.classList.toggle("rotate_up")
+            }
+            divToggleHideShow_FAQ.nextElementSibling.classList.toggle("visible");
+            eachAccordion.classList.toggle("active-accordion")
+        })
+    })
+}
 window.addEventListener("load", function () {
     let myNav = document.getElementById('menu');
     window.onscroll = function () {
@@ -13,6 +33,61 @@ window.addEventListener("load", function () {
             myNav.style.backgroundColor = "";
         }
     };
+    //index page
+    if(HOME_DIV !== null) {
+        const SECOND_ROW_LEFT_COLUMN = document.getElementById("content__second-row__left-column");
+        const SECOND_ROW_RIGHT_COLUMN = document.getElementById("content__second-row__right-column");
+        const arrayContentHover  = document.getElementsByClassName("content__hover")
+        const THIRD_ROW_LEFT_COLUMN = document.getElementById("content__third-row__left-column");
+        const THIRD_ROW_RIGHT_COLUMN = document.getElementById("content__third-row__right-column");
+
+        //second Row
+        SECOND_ROW_LEFT_COLUMN.addEventListener("mouseenter", (event) => {
+            arrayContentHover[0].classList.remove("hidden");
+            arrayContentHover[0].classList.add("visible");
+            arrayContentHover[0].style.transition="all .3s ease";
+        })
+        SECOND_ROW_LEFT_COLUMN.addEventListener("mouseleave", (event) => {
+            arrayContentHover[0].classList.remove("visible")
+            arrayContentHover[0].classList.add("hidden")
+            arrayContentHover[0].classList.add("visible")
+            SECOND_ROW_LEFT_COLUMN.style.transition="all .3s ease;"
+        })
+        SECOND_ROW_RIGHT_COLUMN.addEventListener("mouseenter", (event) => {
+            arrayContentHover[1].classList.remove("hidden");
+            arrayContentHover[1].classList.add("visible");
+            arrayContentHover[1].style.transition="all .3s ease";
+        })
+        SECOND_ROW_RIGHT_COLUMN.addEventListener("mouseleave", (event) => {
+            arrayContentHover[1].classList.remove("visible")
+            arrayContentHover[1].classList.add("hidden")
+            arrayContentHover[1].classList.add("visible")
+            SECOND_ROW_LEFT_COLUMN.style.transition="all .3s ease;"
+        })
+        //third ROW
+        THIRD_ROW_LEFT_COLUMN.addEventListener("mouseenter", (event) => {
+            arrayContentHover[2].classList.remove("hidden");
+            arrayContentHover[2].classList.add("visible");
+            arrayContentHover[2].style.transition="all .3s ease";
+        })
+        THIRD_ROW_LEFT_COLUMN.addEventListener("mouseleave", (event) => {
+            arrayContentHover[2].classList.remove("visible")
+            arrayContentHover[2].classList.add("hidden")
+            arrayContentHover[2].classList.add("visible")
+            THIRD_ROW_LEFT_COLUMN.style.transition="all .3s ease;"
+        })
+        THIRD_ROW_RIGHT_COLUMN.addEventListener("mouseenter", (event) => {
+            arrayContentHover[3].classList.remove("hidden");
+            arrayContentHover[3].classList.add("visible");
+            arrayContentHover[3].style.transition="all .3s ease";
+        })
+        THIRD_ROW_RIGHT_COLUMN.addEventListener("mouseleave", (event) => {
+            arrayContentHover[3].classList.remove("visible")
+            arrayContentHover[3].classList.add("hidden")
+            arrayContentHover[3].classList.add("visible")
+            THIRD_ROW_RIGHT_COLUMN.style.transition="all .3s ease;"
+        })
+    }
 
     const normalizeNavButtons = (firstButton, secondButton) => {
         firstButton.style.width= "10px";
@@ -66,22 +141,29 @@ window.addEventListener("load", function () {
     }
     //course page
     if(COURSE_DIV !== null) {
+        const titleShow = document.querySelector("#show__title");
         const contentDiv = document.querySelectorAll(".course__right-column__content");
         document.querySelector(".course__right-column").classList.add("hidden")
-        let courseButtons = document.querySelectorAll('.course__buttons');
+        const courseButtons = document.querySelectorAll('.course__buttons');
         courseButtons.forEach((eachButton, index) => {
-            eachButton.addEventListener("click", () => {
-                document.querySelector(".information__right-column").classList.remove("hidden")
+            eachButton.addEventListener("click", (event) => {
+                eachButton.style.fontWeight= "bold";
+                eachButton.style.color= MAIN_BLUE;
+                document.querySelector(".course__right-column").classList.remove("hidden")
                 let currentDivContent = contentDiv[index];
+
                 currentDivContent.classList.remove("hidden");
                 currentDivContent.classList.add("visible");
+                titleShow.innerHTML = eachButton.innerHTML;
                 for(let i = 0; i < contentDiv.length; i++) {
                     if(i !== index) {
                         contentDiv[i].classList.add("hidden");
+                        courseButtons[i].style.fontWeight="normal"
                     }
                 }
             } )
         })
+        accordionFunction();
     }
     //introduction page
 
@@ -133,5 +215,10 @@ window.addEventListener("load", function () {
                 }
             } )
         })
+        //accordion code
+        accordionFunction();
+    }
+    if(TESTIMONIAL_DIV !== null) {
+        accordionFunction()
     }
 })
