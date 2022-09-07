@@ -13,7 +13,6 @@ const accordionFunction = () => {
             let divToggleHideShow_FAQ =  eachAccordion.childNodes[1];
 
             console.log("div content", divToggleHideShow_FAQ)
-            // TODO: chỉnh lại vị trí của nút mũi tên
             const arrowDown = divToggleHideShow_FAQ.childNodes[3]
             if(arrowDown.nodeName  === "IMG") {
                 arrowDown.classList.toggle("rotate_up")
@@ -28,7 +27,7 @@ window.addEventListener("load", function () {
     window.onscroll = function () {
         "use strict";
         if (document.body.scrollTop >= 100 || document.documentElement.scrollTop >= 100) {
-            myNav.style.backgroundColor = "#2E4273";
+            myNav.style.backgroundColor = MAIN_BLUE;
         } else {
             myNav.style.backgroundColor = "";
         }
@@ -168,26 +167,39 @@ window.addEventListener("load", function () {
     //introduction page
 
     if(INTRODUCTION_DIV !== null) {
+        const numberCarousel = document.querySelector(".carousel__caption__number");
+        const titleCarousel = document.querySelector(".carousel__caption__title");
         const titleShow = document.querySelector("#show__title");
-         const contentDiv = document.querySelectorAll(".information__right-column__content");
+        const contentDiv = document.querySelectorAll(".information__right-column__content");
         document.querySelector(".information__right-column").classList.add("hidden")
         const informationButtons = document.querySelectorAll('.information__buttons');
         informationButtons.forEach((eachButton, index) => {
             eachButton.addEventListener("click", (event) => {
+                console.log("index", index)
+                if(index <= 5){
+                    numberCarousel.textContent = "01"
+                }else if(index === 6){
+                    numberCarousel.textContent = "02"
+                }
+                else if(index === 7){
+                    numberCarousel.textContent = "03"
+                }else{
+                    numberCarousel.textContent = "04"
+                }
                 eachButton.style.fontWeight= "bold";
                 eachButton.style.color= MAIN_BLUE;
                 document.querySelector(".information__right-column").classList.remove("hidden")
                 let currentDivContent = contentDiv[index];
-
                 currentDivContent.classList.remove("hidden");
                 currentDivContent.classList.add("visible");
                 titleShow.innerHTML = eachButton.innerHTML;
+                titleCarousel.innerHTML = eachButton.innerHTML;
                 for(let i = 0; i < contentDiv.length; i++) {
                     if(i !== index) {
                         contentDiv[i].classList.add("hidden");
-                        informationButtons[i].style.fontWeight="normal"
-                    }
+                        eachButton.style.color="black";
                 }
+            }
             } )
         })
     }
@@ -219,6 +231,7 @@ window.addEventListener("load", function () {
         accordionFunction();
     }
     if(TESTIMONIAL_DIV !== null) {
+        myNav.style.backgroundColor= MAIN_BLUE;
         accordionFunction()
     }
 })

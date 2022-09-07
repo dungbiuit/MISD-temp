@@ -149,8 +149,6 @@ body {
     min-height: 100vh;
     background-size: cover;
     background-image: url("../Images/background_1.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
   }
 
   &__quote{
@@ -205,9 +203,10 @@ body {
     }
   }
 }
-//#TODO style lại phần ô trang chủ
   #content {
     &__first-row {
+      min-height: 410px;
+      margin-bottom: 10px;
       &__left-column {
         @include setBackgroundSite("../Images/index_1.jpeg");
       }
@@ -256,11 +255,10 @@ body {
       }
 
       &__right-column {
-        //margin-left: 10px;
-        @include setBackgroundSite("../Images/index_5.png")
+        margin-left: 10px;
+        @include setBackgroundSite("../Images/index_5.png");
       }
     }
-
   }
 .content__hover{
   background-color: $mainYellow;
@@ -366,6 +364,58 @@ body {
   }
 }
 
+.sign-up__pattern{
+  display: flex;
+  &__left, &__right{
+    flex: 1;
+  }
+  &__left{
+    background-color: $mainBlue;
+  }
+  &__left{
+    background-color: $mainYellow;
+  }
+}
+
+
+.high-low-block {
+  display: flex;
+  height: 300px;
+  &__left,
+  &__right {
+    flex: 1;
+  }
+  &__left{
+    background-color: $secondaryBlue;
+    &__content{
+      padding: 10%;
+      h2{
+        margin-bottom: 15px;
+        line-height: 40px;
+        max-height: 80px;
+      }
+      h4{
+        margin-bottom: 15px;
+        color: $mainBlue;
+      }
+
+    }
+  }
+  &__right{
+    background-color: $mainYellow;
+  }
+  &__button{
+    a{
+      color: $secondaryBlue !important;
+      &:hover{
+        color: white !important;
+        background-color: $mainYellow;
+      }
+    }
+  }
+
+}
+
 .footer {
   color: white;
   padding: 5% 5% 5% 0;
@@ -385,7 +435,7 @@ body {
     ul{
       list-style-type: none;
       li {
-        padding-bottom: 3%;
+        padding: 3% 0;
         border-bottom: 1px solid white;
         &:hover{
           border-bottom: 2px solid yellow;
@@ -406,26 +456,61 @@ body {
 .carousel {
   img {
     width: 100%;
-
+    filter: brightness(50%);
   }
+  &__caption{
+    overflow: hidden;
+    padding: 1%;
+    background: rgba(17,53,121,0.9);
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    right: 0;
+    width: 60.41667%;
+    left: auto;
+    &__number{
+      font-size: 82px;
+      line-height: 82px;
+      color: #ffbb16;
+      float: left;
+      font-family: "SFU Clear Gothic",Arial,sans-serif;
+      margin-top: -4px;
+      padding: 10px;
+    }
+    &__title{
+      font-size: 30px;
+      line-height: 82px;
+      color: #fff;
+      font-family: "SFU Clear Gothic",Arial,sans-serif;
+      text-transform: capitalize;
+    }
+  }
+
 }
 .information, .course, .admission, .testimonial{
   display: grid;
   grid-template-columns: 40% 50%;
   color: black;
-  padding-top: 3%;
+  padding: 10% 0;
   &__buttons{
     text-transform: uppercase;
     font-weight: 700;
   }
   h4, h5, h6 {
+    text-transform: uppercase;
     border-bottom: 1px solid $mainBlue;
     padding: 3% 0;
-    opacity: 0.8;
     font-weight: 700;
+    font-family:  "San Francisco Text",Arial,sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    &:hover{
+      color: $mainBlue;
+    }
   }
   h4{
     display: list-item;
+    color: $mainBlue;
   }
   h5 {
     text-indent: 10px;
@@ -464,7 +549,7 @@ body {
       text-align: justify-all;
     }
   }
-  &__introduction, {
+  &__introduction {
     &__content {
       display: flex;
       height: 40vh;
@@ -480,6 +565,55 @@ body {
       }
     }
   }
+}
+
+.testimonial {
+  &__right-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 3%;
+  }
+
+  .item {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 3%;
+    .first-row{
+      display: flex;
+      position: relative;
+      img {
+      }
+    }
+  }
+  #item_1{
+    grid-area: 1/1/2/3;
+  }
+  #item_2{
+    grid-area: 1/3/2/4;
+  }
+  #item_3{
+    grid-area: 2/1/3/3;
+  }
+    .item__avatar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        object-fit: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-color: white;
+      }
+  }
+  .item__title{
+    margin-left: 3%;
+    flex: 6;
+    text-align: justify;
+  }
+
 }
 
 .course {
@@ -502,8 +636,6 @@ body {
       width: 100%;
     }
   }
-  &__left-column {
-  }
 }
 
 .testimonial {
@@ -523,38 +655,45 @@ body {
 }
 
 .faq {
-  background-color: $secondaryBlue;
+  background-color: #e7f0f7;
   &__header {
     font-size: 20px;
     color: $mainBlue;
     background-color: $mainYellow;
-    padding: 8px 15px;
+    padding: 2% 0;
     font-family: "SFU Clear Gothic",Arial,sans-serif;
   }
   &__content {
-    background-color: #e7f0f7;
     &__item {
       padding: 5px 30px 10px 35px;
       border-bottom: 1px solid $mainBlue;
       &__title {
         cursor: pointer;
         color: #979797;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h4{
+          flex: 6;
+        }
+        img{
+          width: 10px;
+        }
         &:hover {
           color: $mainBlue;
         }
         h4{
           display: inline-block;
           border-bottom: none;
-          padding: 0;
-        }
-        img{
-          float: right;
+          color: black;
+          text-transform: none;
         }
      }
       &__content{
         margin-top: 5px;
         display: none;
         color: $mainBlue;
+        text-align: justify;
       }
     }
   }
@@ -564,8 +703,7 @@ body {
 .sign-in, .sign-up {
   &__status-bar {
     background-color: $mainBlue;
-    display: flex;
-    &__left-column{
+    display: flex; &__left-column{
       display: flex;
     }
     &__right-column {
@@ -675,6 +813,7 @@ body {
 }
 
 .testimonial {
+  padding: 10% 0;
   &__first-section {
     display: flex;
     &__avatar{
@@ -696,6 +835,7 @@ body {
 
 .contact{
   &__primary{
+    padding: 10% 0;
     background-color: $mainBlue;
     display: flex;
     &__image {
@@ -727,6 +867,7 @@ body {
               border: 1px solid #ccc;
             }
           }
+
         }
       textarea{
         display: block;
@@ -736,28 +877,52 @@ body {
         margin: $STANDARD_MARGIN_SIZE 0;
         border: 1px solid #ccc;
       }
+      button{
+        text-transform: uppercase;
+        color: $mainBlue;
+        font-weight: bold;
+        background-color: white;
+        border-radius: 0;
+        min-width: 300px;
+        padding: 6px 12px;
+        @include skewButton;
+
+        &:hover {
+          background-color: $mainYellow;
+          color: white;
+        }
+      }
     }
   }
 }
+
 .contact{
-  &__information {
+  &__center {
+    padding: 5%;
+    display: block;
+    text-align: center;
+  }
+    &__information {
       display: flex;
+
       &__map {
-        flex: 4;
+        flex: 3;
       }
+
       &__content {
-        flex: 6;
+        flex: 3;
         color: $mainBlue;
-        p{
+        text-align: left;
+        p {
           margin: $STANDARD_MARGIN_SIZE 0;
         }
-        strong{
+
+        strong {
           font-weight: bold;
         }
       }
-    padding: 15px;
+    }
   }
-}
 
 //MODIFIED ON_OFF
 .visible {
@@ -766,6 +931,7 @@ body {
 .hidden {
   display: none;
 }
+
 .active-accordion{
   color: $mainBlue;
   cursor: pointer;
@@ -778,4 +944,8 @@ body {
 }
 .main-blue-text{
   color: $mainBlue;
+}
+
+.blank-space{
+  padding: 100px 0 50px;
 }
